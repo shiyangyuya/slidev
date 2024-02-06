@@ -59,6 +59,20 @@ transition: fade-out
 
 # 代码管理-git进阶
 
+## 日常代码暂存
+
+- git stash 
+
+## git 命令别名
+
+- git config --global alias.ci "commit"
+
+---
+transition: fade-out
+---
+
+# 代码管理-git进阶
+
 ## git hooks
 
 ### 类似于vue的生命周期，git 能在特定的重要动作发生时触发自定义脚本
