@@ -95,7 +95,7 @@ transition: fade-out
 <div class="py-5" />
 
 #### 在.git/hooks文件下，保存了一些 shell 脚本
-- <span class="text-red">pre-commit</span> 钩子在键入提交信息前运行。 
+- <span class="text-red">pre-commit</span> 钩子在键入提交信息前运行。 使用场景：代码检查， 格式化， 使用tsc 将ts转为js文件兼容老项目
 - prepare-commit-msg 钩子在启动提交信息编辑器之前，默认信息被创建之后运行。
 - <span class="text-red">commit-msg</span> 钩子接收一个参数，存有当前提交信息的临时文件的路径
 - post-commit 钩子在整个提交过程完成后运行
