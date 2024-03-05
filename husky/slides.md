@@ -10,7 +10,7 @@ info: |
 
   Learn more at [Sli.dev](https://sli.dev)
 drawings:
-  persist: false
+persist: false
 transition: slide-left
 title: Welcome to Slidev
 mdc: true
@@ -18,7 +18,7 @@ mdc: true
 
 # 前端工程化之代码管理
 
-## 代码管理-git进阶
+## 代码管理-git基础操作
 
  <div class="mb-10"></div>
 
@@ -35,9 +35,9 @@ transition: fade-out
 - 📝 代码冲突
 
   1. 不同的格式化工具prettier | Volar ｜ Vetur ...
-  2. 不同的linter规则: 全局的 ｜ 项目自己的 
+  2. 不同的linter规则
 
-- 🛠 代码规范
+- 🛠 代码规范 编辑器警告及报错， git 提交信息不规范
   <img class="w-[300px] height-[84px]" src="https://img.scmttec.com/thematic%20pic/40/mg/977e11704361864134.png" />
   <img class="w-[300px] height-[84px]" src="https://img.scmttec.com/thematic%20pic/40/mg/191b91707210753729.png" />
 
@@ -46,9 +46,9 @@ transition: fade-out
 transition: fade-out
 ---
 
-# 代码管理-git进阶
+# 代码管理-git基础操作
 
-## 日常代码合并方式
+## 代码合并提交的三种方式
 
 - git merge 
   <img class="w-[300px] height-[84px]" src="https://img.scmttec.com/thematic%20pic/40/mg/992661706861529300.png" />
@@ -61,7 +61,58 @@ transition: fade-out
 transition: fade-out
 ---
 
-# 代码管理-git进阶
+# 代码管理-git基础操作
+
+## git merge
+- <div>git merge 命令用于将一个分支的更改合并到另一个分支上。它将源分支的提交<span class="text-red">创建一个新的合并提交</span>，并将其应用到目标分支上。</div>
+
+## git rebase 
+
+- <div>git rebase 命令用于将一个分支的更改应用到另一个分支上。它的基本工作原理是将当前分支的提交按照提交顺序<span class="text-red">逐个应用</span>到目标分支上，并在过程中修改提交的父节点指针，使得提交历史看起来线性而干净。</div>
+## 使用 git rebase 的一般流程
+
+1. 切换到目标分支（通常是要合并到的目标分支）：git checkout target_branch
+2. 运行 git rebase 命令并指定源分支：git rebase source_branch
+3. 这将会将源分支的提交逐个应用到目标分支之上。如果在应用过程中出现冲突，Git 会暂停 rebase 操作，让用户解决冲突后继续应用剩余的提交。完成冲突解决后，可以使用 git rebase --continue 命令继续 rebase 操作。
+4. git rebase --skip 命令可以跳过当前提交，继续应用后面的提交。例如在当前无修改的提交，可以先使用 git rebase --skip 命令跳过，然后再进行下面的步骤。
+
+---
+transition: fade-out
+---
+# 代码管理-git基础操作
+
+## git cherry-pick
+
+- <div>git cherry-pick命令用于将<span class="text-red">一个或多个提交</span>从一个分支复制到另一个分支</div>
+
+## 使用 git cherry-pick 的一般流程
+
+1. 切换到目标分支: git checkout target_branch
+2. 运行 cherry-pick 命令提取制定提交: git cherry-pick commit_id
+3. 如果出现冲突，如果在应用过程中出现冲突，Git 会暂停 cherry-pick 操作，让用户解决冲突后继续应用剩余的提交: git cherry-pick --continue
+3. git cherry-pick --skip 命令可以跳过当前提交，继续应用后面的提交。例如在当前无修改的提交，可以先使用 git cherry-pick --skip 命令跳过，继续进行合并操作
+
+
+## 使用git cherry-pick 提取多个提交
+
+- 复制多个提交：
+  ```bash
+    git cherry-pick commit_id1 commit_id2 commit_id3
+  ```
+- 复制一个范围内的提交: 闭区间包含commit_id1
+  ```bash
+    git cherry-pick commit_id1^..commit_id2 
+  ```
+- 复制一个范围内的提交: 半开区间不包含commit_id1
+  ```bash
+    git cherry-pick commit_id1..commit_id2 
+  ```
+
+---
+transition: fade-out
+---
+
+# 代码管理-git基础操作
 
 ## 命令别名
 
@@ -86,7 +137,7 @@ transition: fade-out
 transition: fade-out
 ---
 
-# 代码管理-git进阶
+# 代码管理-git基础操作
 
 ## git hooks
 
